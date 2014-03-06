@@ -411,7 +411,7 @@ static const CGFloat iPhoneScreenPortraitWidth = 320.f;
     if (self.style == ALMoviePlayerControlsStyleDefault) {
         self.style = self.moviePlayer.isFullscreen ? ALMoviePlayerControlsStyleEmbedded : ALMoviePlayerControlsStyleFullscreen;
     }
-    if (self.moviePlayer.currentPlaybackRate != 1.f) {
+    if (self.moviePlayer.currentPlaybackRate != 1.f && !self.moviePlayer.isFullscreen) {
         self.moviePlayer.currentPlaybackRate = 1.f;
     }
     [self.moviePlayer setFullscreen:!self.moviePlayer.isFullscreen animated:YES];
