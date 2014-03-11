@@ -709,6 +709,11 @@ static const CGFloat iPhoneScreenPortraitWidth = 320.f;
     }
 }
 
+- (void)setHideFullscreenButton:(BOOL)hide
+{
+	[self.fullscreenButton setHidden:hide];
+}
+
 @end
 
 # pragma mark - ALMoviePlayerControlsBar
@@ -733,12 +738,6 @@ static const CGFloat iPhoneScreenPortraitWidth = 320.f;
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [_color CGColor]);
     CGContextFillRect(context, rect);
-}
-
-
-- (void)setHideFullscreenButton:(BOOL)hide
-{
-	[self.fullscreenButton setHidden:hide];
 }
 
 @end
