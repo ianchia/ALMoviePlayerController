@@ -73,6 +73,8 @@ typedef enum {
  */
 @property (nonatomic, assign) NSTimeInterval fadeDelay;
 
+@property (nonatomic, assign) BOOL neverHide;
+
 /**
  The rate at which the movie should fastforward or rewind.
  
