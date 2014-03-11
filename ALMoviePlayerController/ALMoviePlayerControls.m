@@ -735,4 +735,10 @@ static const CGFloat iPhoneScreenPortraitWidth = 320.f;
     CGContextFillRect(context, rect);
 }
 
+
+- (void)setHideFullscreenButton:(BOOL)hide
+{
+	[self.fullscreenButton setHidden:hide];
+}
+
 @end

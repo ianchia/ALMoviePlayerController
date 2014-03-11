@@ -100,4 +100,6 @@ typedef enum {
  */
 - (id)initWithMoviePlayer:(ALMoviePlayerController *)moviePlayer style:(ALMoviePlayerControlsStyle)style;
 
+- (void)setHideFullscreenButton:(BOOL)hide;
+
 @end
