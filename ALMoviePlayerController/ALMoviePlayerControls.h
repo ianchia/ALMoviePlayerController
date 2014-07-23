@@ -102,4 +102,6 @@ typedef enum {
 
 - (void)setHideFullscreenButton:(BOOL)hide;
 
+- (void)setHideScaleButton:(BOOL)hide;
+
 @end

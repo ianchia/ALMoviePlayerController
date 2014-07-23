@@ -714,6 +714,11 @@ static const CGFloat iPhoneScreenPortraitWidth = 320.f;
 	[self.fullscreenButton setHidden:hide];
 }
 
+- (void)setHideScaleButton:(BOOL)hide
+{
+	[self.scaleButton setHidden:hide];
+}
+
 @end
 
 # pragma mark - ALMoviePlayerControlsBar
