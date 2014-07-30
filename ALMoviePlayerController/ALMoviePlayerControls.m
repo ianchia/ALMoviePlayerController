@@ -8,8 +8,6 @@
 
 #import "ALMoviePlayerControls.h"
 #import "ALMoviePlayerController.h"
-#import "ALAirplayView.h"
-#import "ALButton.h"
 #import <tgmath.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -54,20 +52,21 @@ static const CGFloat iPhoneScreenPortraitWidth = 320.f;
 
 @property (nonatomic, strong) ALMoviePlayerControlsBar *topBar;
 @property (nonatomic, strong) ALMoviePlayerControlsBar *bottomBar;
-@property (nonatomic, strong) UISlider *durationSlider;
-@property (nonatomic, strong) ALButton *playPauseButton;
-@property (nonatomic, strong) MPVolumeView *volumeView;
-@property (nonatomic, strong) ALAirplayView *airplayView;
-@property (nonatomic, strong) ALButton *fullscreenButton;
-@property (nonatomic, strong) UILabel *timeElapsedLabel;
-@property (nonatomic, strong) UILabel *timeRemainingLabel;
-@property (nonatomic, strong) ALButton *seekForwardButton;
-@property (nonatomic, strong) ALButton *seekBackwardButton;
-@property (nonatomic, strong) ALButton *scaleButton;
 
 @end
 
 @implementation ALMoviePlayerControls
+
+@synthesize durationSlider = _durationSlider;
+@synthesize playPauseButton = _playPauseButton;
+@synthesize volumeView = _volumeView;
+@synthesize airplayView = _airplayView;
+@synthesize fullscreenButton = _fullscreenButton;
+@synthesize timeElapsedLabel = _timeElapsedLabel;
+@synthesize timeRemainingLabel = _timeRemainingLabel;
+@synthesize seekForwardButton = _seekForwardButton;
+@synthesize seekBackwardButton = _seekBackwardButton;
+@synthesize scaleButton = _scaleButton;
 
 # pragma mark - Construct/Destruct
 

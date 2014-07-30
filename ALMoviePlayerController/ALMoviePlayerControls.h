@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MPMoviePlayerController.h>
+#import "ALButton.h"
+#import "ALAirplayView.h"
 
 @class ALMoviePlayerController;
 
@@ -38,7 +40,19 @@ typedef enum {
     
 } ALMoviePlayerControlsState;
 
-@interface ALMoviePlayerControls : UIView
+@interface ALMoviePlayerControls : UIView {
+}
+
+@property (nonatomic, strong) UISlider *durationSlider;
+@property (nonatomic, strong) ALButton *playPauseButton;
+@property (nonatomic, strong) MPVolumeView *volumeView;
+@property (nonatomic, strong) ALAirplayView *airplayView;
+@property (nonatomic, strong) ALButton *fullscreenButton;
+@property (nonatomic, strong) UILabel *timeElapsedLabel;
+@property (nonatomic, strong) UILabel *timeRemainingLabel;
+@property (nonatomic, strong) ALButton *seekForwardButton;
+@property (nonatomic, strong) ALButton *seekBackwardButton;
+@property (nonatomic, strong) ALButton *scaleButton;
 
 /** 
  The style of the controls. Can be changed on the fly.
