@@ -537,7 +537,11 @@ static const CGFloat iPhoneScreenPortraitWidth = 320.f;
 }
 
 - (void)showControls:(void(^)(void))completion {
-    if (!self.isShowing) {
+	[self showControls:completion override:NO];
+}
+
+- (void)showControls:(void(^)(void))completion override:(BOOL)override {
+    if ( override || !self.isShowing) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideControls:) object:nil];
         if (self.style == ALMoviePlayerControlsStyleFullscreen || (self.style == ALMoviePlayerControlsStyleDefault && self.moviePlayer.isFullscreen)) {
             [self.topBar setNeedsDisplay];

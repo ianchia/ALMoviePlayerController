@@ -118,4 +118,6 @@ typedef enum {
 
 - (void)setHideScaleButton:(BOOL)hide;
 
+- (void)showControls:(void(^)(void))completion override:(BOOL)override;
+
 @end
