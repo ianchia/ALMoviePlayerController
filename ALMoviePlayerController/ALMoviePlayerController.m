@@ -55,10 +55,13 @@ static const NSTimeInterval fullscreenAnimationDuration = 0.3;
     return [self initWithFrame:CGRectZero];
 }
 
+/// Removed since this causes issues in iOS8
+/*
 - (id)initWithContentURL:(NSURL *)url {
     [[NSException exceptionWithName:@"ALMoviePlayerController Exception" reason:@"Set contentURL after initialization." userInfo:nil] raise];
     return nil;
 }
+*/
 
 - (id)initWithFrame:(CGRect)frame {
     if ( (self = [super init]) ) {
