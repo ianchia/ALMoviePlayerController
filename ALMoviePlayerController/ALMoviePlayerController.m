@@ -23,8 +23,14 @@
 
 @implementation UIApplication (ALAppDimensions)
 
++ (CGSize)screenSizeOrientationIndependent {
+	CGSize screenSize = [UIScreen mainScreen].bounds.size;
+	return CGSizeMake(MIN(screenSize.width, screenSize.height), MAX(screenSize.width, screenSize.height));
+}
+
+
 + (CGSize)sizeInOrientation:(UIInterfaceOrientation)orientation {
-    CGSize size = [UIScreen mainScreen].bounds.size;
+    CGSize size = [UIApplication screenSizeOrientationIndependent];
     UIApplication *application = [UIApplication sharedApplication];
     if (UIInterfaceOrientationIsLandscape(orientation)) {
         size = CGSizeMake(size.height, size.width);
@@ -226,7 +232,7 @@ static const NSTimeInterval fullscreenAnimationDuration = 0.3;
     
     if (animated) {
         [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            self.movieBackgroundView.transform = CGAffineTransformMakeRotation(angle);
+            // self.movieBackgroundView.transform = CGAffineTransformMakeRotation(angle);
             self.movieBackgroundView.frame = backgroundFrame;
             [self setFrame:movieFrame];
         } completion:^(BOOL finished) {
@@ -234,7 +240,7 @@ static const NSTimeInterval fullscreenAnimationDuration = 0.3;
                 completion();
         }];
     } else {
-        self.movieBackgroundView.transform = CGAffineTransformMakeRotation(angle);
+        // self.movieBackgroundView.transform = CGAffineTransformMakeRotation(angle);
         self.movieBackgroundView.frame = backgroundFrame;
         [self setFrame:movieFrame];
         if (completion)
