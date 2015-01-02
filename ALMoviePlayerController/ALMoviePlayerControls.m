@@ -67,6 +67,8 @@ static const CGFloat iPhoneScreenPortraitWidth = 320.f;
 @synthesize seekForwardButton = _seekForwardButton;
 @synthesize seekBackwardButton = _seekBackwardButton;
 @synthesize scaleButton = _scaleButton;
+@synthesize forwardButtonHidden = _forwardButtonHidden;
+@synthesize backButtonHidden = _backButtonHidden;
 
 # pragma mark - Construct/Destruct
 
@@ -81,6 +83,8 @@ static const CGFloat iPhoneScreenPortraitWidth = 320.f;
         _fadeDelay = 5.0;
         _timeRemainingDecrements = NO;
         _barColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+		_forwardButtonHidden = NO;
+		_backButtonHidden = NO;
         
         //in fullscreen mode, move controls away from top status bar and bottom screen bezel. I think the iOS7 control center gestures interfere with the uibutton touch events. this will alleviate that a little (correct me if I'm wrong and/or adjust if necessary).
         _barHeight = [UIDevice iOSVersion] >= 7.0 ? 70.f : 50.f;
@@ -672,7 +676,9 @@ static const CGFloat iPhoneScreenPortraitWidth = 320.f;
         self.bottomBar.frame = CGRectMake(0, self.frame.size.height - self.barHeight, self.frame.size.width, self.barHeight);
         self.playPauseButton.frame = CGRectMake(self.bottomBar.frame.size.width/2 - playWidth/2, self.barHeight/2 - playHeight/2, playWidth, playHeight);
         self.seekForwardButton.frame = CGRectMake(self.playPauseButton.frame.origin.x + self.playPauseButton.frame.size.width + paddingBetweenPlaybackButtons, self.barHeight/2 - seekHeight/2 + 1.f, seekWidth, seekHeight);
+		self.seekForwardButton.hidden = self.forwardButtonHidden;
         self.seekBackwardButton.frame = CGRectMake(self.playPauseButton.frame.origin.x - paddingBetweenPlaybackButtons - seekWidth, self.barHeight/2 - seekHeight/2 + 1.f, seekWidth, seekHeight);
+		self.seekBackwardButton.hidden = self.backButtonHidden;
         
         //hide volume view in iPhone's portrait orientation
         if (self.frame.size.width <= iPhoneScreenPortraitWidth) {
@@ -720,6 +726,16 @@ static const CGFloat iPhoneScreenPortraitWidth = 320.f;
 - (void)setHideScaleButton:(BOOL)hide
 {
 	[self.scaleButton setHidden:hide];
+}
+
+- (void)setForwardButtonHidden:(BOOL)hidden {
+	_forwardButtonHidden = hidden;
+	self.seekForwardButton.hidden = hidden;
+}
+
+- (void)setBackButtonHidden:(BOOL)hidden {
+	_backButtonHidden = hidden;
+	self.seekBackwardButton.hidden = hidden;
 }
 
 @end

@@ -54,6 +54,9 @@ typedef enum {
 @property (nonatomic, strong) ALButton *seekBackwardButton;
 @property (nonatomic, strong) ALButton *scaleButton;
 
+@property (nonatomic) BOOL forwardButtonHidden;
+@property (nonatomic) BOOL backButtonHidden;
+
 /** 
  The style of the controls. Can be changed on the fly.
  
@@ -119,5 +122,11 @@ typedef enum {
 - (void)setHideScaleButton:(BOOL)hide;
 
 - (void)showControls:(void(^)(void))completion override:(BOOL)override;
+
+/**
+ * Set whether or not the forward and back buttons are hidden
+ */
+- (void)setForwardButtonHidden:(BOOL)hidden;
+- (void)setBackButtonHidden:(BOOL)hidden;
 
 @end
