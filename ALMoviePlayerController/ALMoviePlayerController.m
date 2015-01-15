@@ -214,13 +214,15 @@ static const NSTimeInterval fullscreenAnimationDuration = 0.3;
             break;
         case UIInterfaceOrientationLandscapeLeft:
             angle = - M_PI_2;
-            backgroundFrame = CGRectMake([self statusBarHeightInOrientation:orientation] - movieBackgroundPadding, -movieBackgroundPadding, windowSize.height + movieBackgroundPadding*2, windowSize.width + movieBackgroundPadding*2);
-            movieFrame = CGRectMake(movieBackgroundPadding, movieBackgroundPadding, backgroundFrame.size.height - movieBackgroundPadding*2, backgroundFrame.size.width - movieBackgroundPadding*2);
+            // backgroundFrame = CGRectMake([self statusBarHeightInOrientation:orientation] - movieBackgroundPadding, -movieBackgroundPadding, windowSize.height + movieBackgroundPadding*2, windowSize.width + movieBackgroundPadding*2);
+            backgroundFrame = CGRectMake([self statusBarHeightInOrientation:orientation] - movieBackgroundPadding, -movieBackgroundPadding,windowSize.width + movieBackgroundPadding*2, windowSize.height + movieBackgroundPadding*2);
+            movieFrame = CGRectMake(movieBackgroundPadding, movieBackgroundPadding,backgroundFrame.size.width - movieBackgroundPadding*2, backgroundFrame.size.height - movieBackgroundPadding*2);
             break;
         case UIInterfaceOrientationLandscapeRight:
             angle = M_PI_2;
-            backgroundFrame = CGRectMake(-movieBackgroundPadding, -movieBackgroundPadding, windowSize.height + movieBackgroundPadding*2, windowSize.width + movieBackgroundPadding*2);
-            movieFrame = CGRectMake(movieBackgroundPadding, movieBackgroundPadding, backgroundFrame.size.height - movieBackgroundPadding*2, backgroundFrame.size.width - movieBackgroundPadding*2);
+            // backgroundFrame = CGRectMake(-movieBackgroundPadding, -movieBackgroundPadding, windowSize.height + movieBackgroundPadding*2, windowSize.width + movieBackgroundPadding*2);
+            backgroundFrame = CGRectMake(-movieBackgroundPadding, -movieBackgroundPadding,windowSize.width + movieBackgroundPadding*2, windowSize.height + movieBackgroundPadding*2);
+            movieFrame = CGRectMake(movieBackgroundPadding, movieBackgroundPadding,backgroundFrame.size.width - movieBackgroundPadding*2, backgroundFrame.size.height - movieBackgroundPadding*2);
             break;
         case UIInterfaceOrientationPortrait:
         default:
